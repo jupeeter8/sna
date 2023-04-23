@@ -1,0 +1,5 @@
+MATCH (u:Male)-[r]->(v:Female)
+WITH v, count(r) AS num_friends
+ORDER BY num_friends DESC
+LIMIT 10
+RETURN v, num_friends

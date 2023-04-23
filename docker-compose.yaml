@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  neo4j:
+    image: neo4j:4.4
+    environment:
+      - NEO4JLABS_PLUGINS=["graph-data-science"]
+      - NEO4J_dbms_security_procedures_unrestricted=gds.*
+      - NEO4J_dbms_security_procedures_whitelist=gds.*
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - myneo4jdata:/data
+
+volumes:
+  myneo4jdata:
